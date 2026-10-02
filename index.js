@@ -5,6 +5,9 @@
 const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios');
 const Database = require('better-sqlite3');
+process.on('unhandledRejection', (e) => console.error('❌ Unhandled:', e?.message || e));
+process.on('uncaughtException',  (e) => console.error('❌ Uncaught:',  e?.message || e));
+const _origLog = console.log; console.log = (...a) => _origLog(...a.map(x => (x && typeof x === 'object' && x.message) ? x.message : x));
 
 // ─────────────────────────────────────────────────────────────
 //  CONFIG
