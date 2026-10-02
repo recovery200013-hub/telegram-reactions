@@ -1,5 +1,8 @@
-node_modules/
-bot.db
-bot.db-shm
-bot.db-wal
-.env
+git init
+git add .gitignore
+git commit -m "add gitignore"
+git add package.json index.js
+git commit -m "initial bot"
+git branch -M main
+git remote add origin https://github.com/recovery200013-hub/telegram-reactions.git
+git push -u origin main
