@@ -48,7 +48,14 @@ db.exec(`
     added_at INTEGER,
     active   INTEGER DEFAULT 1
   );
-`);
+  CREATE TABLE IF NOT EXISTS orders (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    message_id INTEGER,
+    order_id TEXT,
+    status TEXT,
+    created_at INTEGER
+  );
+`); 
 
 const q = {
   getState: db.prepare('SELECT value FROM state WHERE key = ?'),
@@ -63,17 +70,6 @@ const q = {
 
   statsTotal: db.prepare('SELECT COUNT(*) c FROM orders').c ? null : null,
 };
-
-// orders table bhi bana dete hain stats ke liye
-db.exec(`
-  CREATE TABLE IF NOT EXISTS orders (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    message_id INTEGER,
-    order_id TEXT,
-    status TEXT,
-    created_at INTEGER
-  );
-`);
 
 const getState   = (k) => q.getState.get(k)?.value;
 const setState   = (k, v) => q.setState.run(k, String(v));
