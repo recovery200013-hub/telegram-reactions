@@ -225,18 +225,18 @@ bot.onText(/^\/setqty\s+(\d+)/, (msg, match) => {
   const qty = Number(match[1]);
   if (!qty || qty < 1) return bot.sendMessage(msg.chat.id, '❌ Invalid number');
   setState('quantity', qty);
-  bot.sendMessage(msg.chat.id, `✅ Quantity set to *${qty}*`, { parse_mode: 'Markdown' });
+  bot.sendMessage(msg.chat.id, `✅ Quantity set to *${qty}*`);
 });
 
 bot.onText(/^\/qty$/, (msg) => {
   if (!isAdmin(msg.from.id)) return;
-  bot.sendMessage(msg.chat.id, `🔢 Quantity: *${getQty()}*`, { parse_mode: 'Markdown' });
+  bot.sendMessage(msg.chat.id, `🔢 Quantity: *${getQty()}*`);
 });
 
 bot.onText(/^\/addchannel(?:\s+@?(\S+))?/, async (msg, match) => {
   if (!isAdmin(msg.from.id)) return;
   const username = match[1];
-  if (!username) return bot.sendMessage(msg.chat.id, 'Usage: `/addchannel @channelname`', { parse_mode: 'Markdown' });
+  if (!username) return bot.sendMessage(msg.chat.id, 'Usage: `/addchannel @channelname`');
 
   const clean = username.replace(/^@/, '').toLowerCase();
   try {
@@ -254,7 +254,7 @@ bot.onText(/^\/addchannel(?:\s+@?(\S+))?/, async (msg, match) => {
 bot.onText(/^\/removechannel(?:\s+@?(\S+))?/, (msg, match) => {
   if (!isAdmin(msg.from.id)) return;
   const username = match[1];
-  if (!username) return bot.sendMessage(msg.chat.id, 'Usage: `/removechannel @channelname`', { parse_mode: 'Markdown' });
+  if (!username) return bot.sendMessage(msg.chat.id, 'Usage: `/removechannel @channelname`');
   removeChannel(username);
   bot.sendMessage(msg.chat.id, `🗑️ Removed @${username.replace(/^@/,'')}`);
 });
