@@ -264,7 +264,7 @@ bot.onText(/^\/channels$/, (msg) => {
   const rows = listChannels();
   if (!rows.length) return bot.sendMessage(msg.chat.id, 'No channels added yet.');
   const text = rows.map((c, i) => `${i + 1}. *${c.title || c.username}* — @${c.username}`).join('\n');
-  bot.sendMessage(msg.chat.id, `📡 *Channels:*\n${text}`, { parse_mode: 'Markdown' });
+  bot.sendMessage(msg.chat.id, `📡 *Channels:*\n${text}`);
 });
 
 // ─────────────────────────────────────────────────────────────
