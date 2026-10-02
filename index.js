@@ -240,9 +240,8 @@ bot.onText(/^\/addchannel(?:\s+@?(\S+))?/, async (msg, match) => {
     const chat = await bot.getChat(`@${clean}`);
     addChannel(clean, chat.id, chat.title, msg.from.id);
     bot.sendMessage(msg.chat.id,
-      `✅ Added *${chat.title}* (@${clean})\n\n⚠️ Make bot admin in that channel.`,
-      { parse_mode: 'Markdown' }
-    );
+  `✅ Added ${chat.title} (@${clean})\n\n⚠️ Make bot admin in that channel.`
+);
     log(`Channel added: @${clean} by ${msg.from.id}`);
   } catch (e) {
     bot.sendMessage(msg.chat.id, `❌ Could not resolve @${clean}: ${e.message}`);
