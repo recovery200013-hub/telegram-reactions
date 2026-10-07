@@ -24,7 +24,7 @@ const PANELS = [
     name:    'VeerSMM',
     url:     process.env.API_URL_1 || 'https://veersmm.site/api/v2',
     key:     process.env.API_KEY_1 || process.env.API_KEY || '',
-    service: process.env.SERVICE_ID_1 || '2300',
+    service: process.env.SERVICE_ID_1 || '5160',
   },
   {
     name:    'Panel2',
