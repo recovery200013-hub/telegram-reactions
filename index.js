@@ -18,7 +18,7 @@ const API_URL   = process.env.API_URL || 'https://veersmm.site/api/v2/';
 const ADMIN_IDS = (process.env.ADMIN_IDS || '').split(',').map(s => Number(s.trim())).filter(Boolean);
 const DB_PATH   = process.env.DB_PATH || './bot.db';
 
-const SERVICE_ID  = 'P2';
+const SERVICE_ID  = 'P201';
 const DEFAULT_QTY = 10;
 
 if (!BOT_TOKEN || !API_KEY) {
