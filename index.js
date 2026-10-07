@@ -14,7 +14,7 @@ const _origLog = console.log; console.log = (...a) => _origLog(...a.map(x => (x 
 // ─────────────────────────────────────────────────────────────
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const API_KEY   = process.env.API_KEY;
-const API_URL   = process.env.API_URL || 'https://smmlite.com/api/v2';
+const API_URL   = process.env.API_URL || 'https://veersmm.site/api/v2/';
 const ADMIN_IDS = (process.env.ADMIN_IDS || '').split(',').map(s => Number(s.trim())).filter(Boolean);
 const DB_PATH   = process.env.DB_PATH || './bot.db';
 
